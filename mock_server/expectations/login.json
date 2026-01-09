@@ -1,0 +1,18 @@
+[
+    {
+        "httpRequest": {
+            "method": "POST",
+            "path": "/login",
+            "body": {
+                "username": "admin",
+                "password": "123456"
+            }
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "jsonBody": {
+                "token": "mock-token-abc"
+            }
+        }
+    }
+]

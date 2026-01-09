@@ -1,0 +1,21 @@
+[
+    {
+        "httpRequest": {
+            "method": "GET",
+            "path": "/user/1"
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            },
+            "jsonBody": {
+                "id": 1,
+                "name": "mock_user",
+                "role": "admin"
+            }
+        }
+    }
+]
