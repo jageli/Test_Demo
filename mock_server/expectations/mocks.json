@@ -1,0 +1,141 @@
+[
+    {
+        "httpRequest": {
+            "method": "GET",
+            "path": "/api/user/1"
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            },
+            "body": {
+                "id": 1,
+                "name": "Tom",
+                "age": 18
+            }
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "GET",
+            "path": "/api/user/2"
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "body": {
+                "id": 2,
+                "name": "Jerry",
+                "age": 20
+            }
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "POST",
+            "path": "/api/login",
+            "body": {
+                "username": "admin",
+                "password": "123456"
+            }
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "body": {
+                "token": "mock-token-abc123"
+            }
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "POST",
+            "path": "/api/login"
+        },
+        "httpResponse": {
+            "statusCode": 401,
+            "body": {
+                "error": "Invalid credentials"
+            }
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "GET",
+            "path": "/api/orders"
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "body": [
+                {
+                    "order_id": 1,
+                    "amount": 100
+                },
+                {
+                    "order_id": 2,
+                    "amount": 200
+                }
+            ]
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "GET",
+            "path": "/api/order/1"
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "body": {
+                "order_id": 1,
+                "amount": 100,
+                "status": "PAID"
+            }
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "PUT",
+            "path": "/api/order/1"
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "body": {
+                "result": "updated"
+            }
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "DELETE",
+            "path": "/api/order/1"
+        },
+        "httpResponse": {
+            "statusCode": 204
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "GET",
+            "path": "/api/health"
+        },
+        "httpResponse": {
+            "statusCode": 200,
+            "body": {
+                "status": "UP"
+            }
+        }
+    },
+    {
+        "httpRequest": {
+            "method": "GET",
+            "path": "/api/error"
+        },
+        "httpResponse": {
+            "statusCode": 500,
+            "body": {
+                "error": "Internal Server Error"
+            }
+        }
+    }
+]
