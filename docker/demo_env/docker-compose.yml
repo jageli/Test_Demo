@@ -1,0 +1,5 @@
+services:
+  demo_env:
+    build: image/.
+    ports:
+      - '2250:22'

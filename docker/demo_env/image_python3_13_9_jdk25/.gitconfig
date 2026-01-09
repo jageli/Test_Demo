@@ -1,0 +1,8 @@
+[user]
+	name = jie2l
+	email = jie.2.li@outlook.com
+[pull]
+	rebase = true
+[core]
+	longpaths = true
+	compression = 0
