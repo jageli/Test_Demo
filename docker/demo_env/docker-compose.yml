@@ -1,5 +1,5 @@
 services:
   demo_env:
-    build: image/.
+    build: image_python_jdk25/.
     ports:
       - '2250:22'

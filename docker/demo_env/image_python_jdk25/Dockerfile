@@ -1,4 +1,4 @@
-FROM python:3.13.9
+FROM python:3.12-slim
 
 # 安装 openssh-server sudo vim locales(语言包)  
 RUN apt-get update && apt-get install -y openssh-server sudo locales 
@@ -51,7 +51,7 @@ USER ute
 COPY .bashrc /home/ute/.bashrc
 # RUN sudo chown ute:ute /home/ute/.bashrc
 # 配置wget代理，下包不需要代理，这里的proxy都是空
-COPY .wgetrc /home/ute/.wgetrc
+# COPY .wgetrc /home/ute/.wgetrc
 # RUN sudo chown ute:ute /home/ute/.wgetrc
 # 配置git
 COPY .gitconfig /home/ute/.gitconfig
