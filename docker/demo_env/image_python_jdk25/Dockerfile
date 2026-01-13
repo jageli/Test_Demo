@@ -33,6 +33,19 @@ COPY .bashrc /root/.bashrc
 # RUN chmod 777 "/usr/local/$NODEJS/bin/node"
 # RUN chmod 777 "/usr/local/$JAVA_JDK/bin/java"
 
+# 安装jdk25
+ARG JDK_DIR=jdk-25
+COPY jdk/jdk-25_linux-x64_bin.tar.gz /usr/local/
+# RUN tar -xzf /usr/local/jdk-25_linux-x64_bin.tar.gz -C /usr/local/
+RUN tar -xzf /usr/local/jdk-25_linux-x64_bin.tar.gz -C /usr/local \
+ && rm -rf /usr/local/${JDK_DIR} \
+ && mv /usr/local/jdk-*/ /usr/local/${JDK_DIR} \
+ && rm -f /usr/local/jdk-25_linux-x64_bin.tar.gz
+ENV JAVA_HOME=/usr/local/${JDK_DIR}
+ENV PATH=$JAVA_HOME/bin:$PATH
+# 设置jdk执行权限
+# RUN chmod 777 "$JAVA_HOME/bin/java"
+
 # 添加一个账号：ute
 RUN useradd -m -s /bin/bash ute
 # 设置ute密码
@@ -59,7 +72,9 @@ COPY .gitconfig /home/ute/.gitconfig
 # 配置.ssh
 # COPY .ssh /home/ute/.ssh
 # RUN sudo chown ute:ute /home/ute/.ssh
-# COPY .Xauthority /home/ute/.Xauthority
+
+# 配置Xauthority
+COPY .Xauthority /home/ute/.Xauthority
 
 # 拷贝pip库
 COPY requirements.txt /home/ute/requirements.txt
@@ -70,7 +85,7 @@ RUN /usr/local/bin/python -m pip install --upgrade pip && \
 
 
 # 配置ute账号的权限
-RUN sudo chown -R ute:ute /home/ute/.bashrc /home/ute/.gitconfig
+RUN sudo chown -R ute:ute /home/ute/.bashrc /home/ute/.gitconfig /home/ute/.Xauthority
 
 # 切换到root账户，开启sshd服务，如果不开启，容器不能保持运行状态
 USER root

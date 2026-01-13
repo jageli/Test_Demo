@@ -2,4 +2,5 @@ services:
   demo_env:
     build: image_python_jdk25/.
     ports:
-      - '2250:22'
+      - "2250:22"
+    restart: unless-stopped

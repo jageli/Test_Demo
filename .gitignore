@@ -201,3 +201,4 @@ nosetests.xml
 coverage.xml
 *.py,cover
 .hypothesis/
+docker/demo_env/image_python_jdk25/jdk/jdk-25_linux-x64_bin.tar.gz
