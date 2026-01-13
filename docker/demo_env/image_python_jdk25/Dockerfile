@@ -65,7 +65,7 @@ COPY .gitconfig /home/ute/.gitconfig
 COPY requirements.txt /home/ute/requirements.txt
 # 安装pip库
 RUN /usr/local/bin/python -m pip install --upgrade pip && \
-    pip install pip-tools --proxy=http://10.144.1.10:8080 && \
+    pip install pip-tools  && \
     pip install -r /home/ute/requirements.txt --upgrade
 
 
