@@ -17,21 +17,15 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                dir("${COMPOSE_DIR}") {
-                    sh '''
-                        docker compose build
-                    '''
-                }
+                sh '''
+                    pwd
+                '''
             }
         }
 
         stage('Run Container') {
             steps {
-                dir("${COMPOSE_DIR}") {
-                    sh '''
-                        docker compose up -d
-                    '''
-                }
+                echo "IMAGE_NAME: ${IMAGE_NAME}"
             }
         }
     }
